@@ -14,6 +14,9 @@ public class TagBuilder {
 		tagMap.put("p", "tags.TagParagraph");
 		tagMap.put("php", "tags.TagPHP");
 		tagMap.put("text", "tags.TagText");
+		tagMap.put("if", "tags.TagIf");
+		tagMap.put("elif", "tags.TagElseIf");
+		tagMap.put("else", "tags.TagElse");
 	}
 
 	public Tag build(String tagName) {

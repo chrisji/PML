@@ -69,6 +69,7 @@ public class PMLBuilder {
 			}
 			rootTag.setAttributes(atts);
 		}
+		
 		rootTag.setChildTags(childTags);
 		// Return root tag
 		return rootTag;
