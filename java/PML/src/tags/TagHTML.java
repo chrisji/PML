@@ -8,6 +8,7 @@ public class TagHTML extends Tag{
 
 	@Override
 	public void output(ArrayList<Tag> tags) {
+		System.out.println("<!doctype html>");
 		System.out.println("<html>");
 		PMLParser.parse(tags);
 		System.out.println("</html>");

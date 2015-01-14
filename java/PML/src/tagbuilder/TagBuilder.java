@@ -12,18 +12,25 @@ public class TagBuilder {
 		tagMap.put("html", "tags.TagHTML");
 		tagMap.put("h1", "tags.TagHeading");
 		tagMap.put("p", "tags.TagParagraph");
-		tagMap.put("php", "tags.TagPHP");
+		tagMap.put("esc", "tags.TagEsc");
 		tagMap.put("text", "tags.TagText");
 		tagMap.put("if", "tags.TagIf");
+		tagMap.put("then", "tags.TagThen");
 		tagMap.put("elif", "tags.TagElseIf");
 		tagMap.put("else", "tags.TagElse");
 	}
 
 	public Tag build(String tagName) {
 		try {
-			String tagClassName = tagMap.get(tagName);
-			Class<?> tagClass = Class.forName(tagClassName);
-			Tag tag = (Tag)tagClass.newInstance(); 
+			Tag tag = null;
+			if (tagMap.containsKey(tagName)) {
+				String tagClassName = tagMap.get(tagName);
+				Class<?> tagClass = Class.forName(tagClassName);
+				tag = (Tag)tagClass.newInstance(); 
+			} else {
+				tag = new Tag();
+			}
+			tag.setTagName(tagName);
 			return tag;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

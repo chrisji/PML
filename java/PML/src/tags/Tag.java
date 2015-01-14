@@ -4,29 +4,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import parser.PMLParser;
+
 /**
  * Represents a PML element.
  * 
  * @author Chris
  *
  */
-public abstract class Tag {
+public class Tag {
 	private HashMap<String, String> attributes;
 	private ArrayList<Tag> childTags;
+	private String tagName;
 	
 	public Tag() {
 		this.attributes = null;
 		this.childTags = null;
+		this.tagName = null;
 	}
-	
-	/* For simple reflection, no parameter constructors allowed?!
-	public Tag(HashMap<String, String> attributes, ArrayList<Tag> childTags) {
-		this.attributes = attributes;
-		this.childTags = childTags;
-	}*/
-	
-	//Should return a tree like structure soon?
-	public abstract void output(ArrayList<Tag> tags);
+
+	public void output(ArrayList<Tag> tags) {
+		System.out.println("<" + this.tagName + buildAttributeString() + ">");
+		PMLParser.parse(tags);
+		System.out.println("</" + this.tagName + ">");
+	}
 	
 	/**
 	 * Returns an ArrayList of Tags representing this Tag's children.
@@ -47,6 +48,10 @@ public abstract class Tag {
 		return this.attributes;
 	}
 	
+	public String getTagName() {
+		return this.tagName;
+	}
+	
 	/**
 	 * Set the children of this Tag.
 	 * 
@@ -64,10 +69,15 @@ public abstract class Tag {
 		this.attributes = attributes;
 	}
 	
+	public void setTagName(String tagName) {
+		this.tagName = tagName;
+	}
+	
 	public String buildAttributeString() {
 		String attString = "";
 		
 		if (attributes != null) {
+			attString += " ";
 			for (Map.Entry<String, String> entry : attributes.entrySet()){
 				attString += entry.getKey() + "=\"" + entry.getValue() + "\"";
 			}
@@ -76,4 +86,8 @@ public abstract class Tag {
 		return attString;
 	}
 	
+	
+	public boolean hasAttributes() {
+		return this.attributes!=null;
+	}
 }
