@@ -1,2 +1,1 @@
-# PML
-Programable Markup Language
+# PML - Programmable Markup Language
