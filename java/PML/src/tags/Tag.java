@@ -2,6 +2,7 @@ package tags;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a PML element.
@@ -59,9 +60,20 @@ public abstract class Tag {
 	 * Set the attributes for this tag.
 	 * @param HashMap<String, String> - HashMap of attributes.
 	 */
-	public void getAttributes(HashMap<String, String> attributes) {
+	public void setAttributes(HashMap<String, String> attributes) {
 		this.attributes = attributes;
 	}
 	
+	public String buildAttributeString() {
+		String attString = "";
+		
+		if (attributes != null) {
+			for (Map.Entry<String, String> entry : attributes.entrySet()){
+				attString += entry.getKey() + "=\"" + entry.getValue() + "\"";
+			}
+		}
+		
+		return attString;
+	}
 	
 }

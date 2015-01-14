@@ -2,11 +2,13 @@ package tagbuilder;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
@@ -57,7 +59,16 @@ public class PMLBuilder {
 				childTags.add(buildTagTree(childNode));
 		    }
 		}
-
+		
+		if (root.hasAttributes()) {
+			HashMap<String, String> atts = new HashMap<String, String>();
+			NamedNodeMap nnm = root.getAttributes();
+			for (int i=0; i<nnm.getLength(); i++) {
+				Node att = nnm.item(i);
+				atts.put(att.getNodeName(), att.getNodeValue());
+			}
+			rootTag.setAttributes(atts);
+		}
 		rootTag.setChildTags(childTags);
 		// Return root tag
 		return rootTag;
