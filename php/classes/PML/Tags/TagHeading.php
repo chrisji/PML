@@ -18,7 +18,7 @@ class TagHeading extends Tag {
      *
      * @param  Array  $tags
      */
-    public abstract function output(Array $tags)
+    public function output(Array $tags)
     {
         echo '<h1>';
         PMLParser::parse($tags);

@@ -18,7 +18,7 @@ class TagParagraph extends Tag {
      *
      * @param  Array  $tags
      */
-    public abstract function output(Array $tags)
+    public function output(Array $tags)
     {
         echo '<p>';
         PMLParser::parse($tags);
