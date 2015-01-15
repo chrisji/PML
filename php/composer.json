@@ -1,0 +1,9 @@
+{
+    "name": "chrisji/PML",
+    "description": "The Programmable Markup Language",
+    "autoload": {
+        "psr-0": {
+            "PML\\": "classes/"
+        }
+    }
+}

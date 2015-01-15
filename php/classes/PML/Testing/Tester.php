@@ -40,16 +40,17 @@ class Tester {
      * @param Array $data An array of data to pass to all tests
      * @return Array/Bool The results of the tests
      */
-    public function run($name = false, $data = [])
+    public function run($data = [], $name = false)
     {
         if($name) {
-            return $this->tests[$name]['function']($data) == $this->tests[$name]['expected'];
+            if(isset($this->tests[$name]))
+                return $this->tests[$name]['function']($data) == $this->tests[$name]['expected'];
         }
 
         $results = [];
 
-        foreach($tests as $name => $test) {
-            $results[$name] = $test['function']($data) == $test['expected'];
+        foreach($this->tests as $name => $test) {
+            $results[$name] = $test['function']($data) === $test['expected'];
         }
 
         return $results;
