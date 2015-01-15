@@ -42,7 +42,7 @@ class Tag {
     public function getChildTagsByName($name)
     {
         $children = [];
-        foreach($this->childTags as $tag) {
+        foreach($this->getChildTags as $tag) {
             if($tag->getTagName() == $name) {
                 $children[] = $tag;
             }

@@ -7,6 +7,9 @@
     <function name="name">
         <argument name="$arg"/>
         <argument name="$arg2">value</argument>
+        <body>
+            boobs
+        </body>
     </function>
 
 </html>

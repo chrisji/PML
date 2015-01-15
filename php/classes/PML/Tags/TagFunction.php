@@ -12,7 +12,7 @@ class TagFunction extends Tag {
 
 
         echo '<?php function '. $name .'(' . $this->buildArgumentString($args) . ') { ?>';
-        PMLParser::parse([]);
+        PMLParser::parse($this->getChildTagsByName('body'));
         echo '<?php } ?>';
     }
 
@@ -32,7 +32,7 @@ class TagFunction extends Tag {
                 $text .= $name . ', ';
             }
         }
-        
+
         return substr(trim($text), 0, -1);
     }
 }
