@@ -1,7 +1,8 @@
 <?php namespace PML\TagBuilder;
 
-
+use PML\Tags\Tag;
 use PML\Exceptions\TagClassNotImplemented;
+
 class TagBuilder {
 
     private $tagMap;
@@ -12,7 +13,7 @@ class TagBuilder {
     public function __construct()
     {
         $this->tagMap = [
-            'if'    => 'PML\\Tags\\TagIfYourMum',
+            'if'    => 'PML\\Tags\\TagIf',
             'then'  => 'PML\\Tags\\TagThen',
             'else'  => 'PML\\Tags\\TagElse',
             'elif'  => 'PML\\Tags\\TagElseIf',
