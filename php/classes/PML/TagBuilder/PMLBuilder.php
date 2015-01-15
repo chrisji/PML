@@ -53,6 +53,7 @@ class PMLBuilder {
                     $tag->setTagName('CharacterData');
                     $childTags[] = $tag;
                 }
+                
             } else {
                 $childTags[] = $this->buildTagTree($child);
             }
