@@ -9,10 +9,10 @@ class TagFunction extends Tag {
         $atts = $this->getAttributes();
         $name = $atts['name'];
         $args = $this->getChildTagsByName('argument');
-
+        $body = $this->getChildTagsByName('body');
 
         echo '<?php function '. $name .'(' . $this->buildArgumentString($args) . ') { ?>';
-        PMLParser::parse($this->getChildTagsByName('body'));
+        PMLParser::parse($body[0]->getChildTags());
         echo '<?php } ?>';
     }
 

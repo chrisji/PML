@@ -19,7 +19,7 @@ class Tag {
     public function output()
     {
         echo '<' . $this->tagName . $this->buildAttributeString() . '>';
-        PMLParser::parse($this->childTags);
+        PMLParser::parse($this->getChildTags());
         echo '</' . $this->tagName . '>';
     }
 
@@ -42,7 +42,7 @@ class Tag {
     public function getChildTagsByName($name)
     {
         $children = [];
-        foreach($this->getChildTags as $tag) {
+        foreach($this->getChildTags() as $tag) {
             if($tag->getTagName() == $name) {
                 $children[] = $tag;
             }
