@@ -1,17 +1,14 @@
 package tags;
 
-import java.util.ArrayList;
-
 import parser.PMLParser;
 
 public class TagEsc extends Tag{
 
 	@Override
-	public void output(ArrayList<Tag> tags) {
-		if (this.hasAttributes() && this.getAttributes().containsKey("lang")) {
-			String lang = getAttributes().get("lang");
+	public void output() {
+		if (this.getAttributes().containsKey("lang")) {
 			System.out.println("<?php");
-			PMLParser.parse(tags);
+			PMLParser.parse(this.getChildTags());
 			System.out.println("?>");
 		}
 	}

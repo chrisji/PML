@@ -30,12 +30,10 @@ public class Tag {
 
 	/**
 	 * Outputs the 'code' for the Tag.
-	 * 
-	 * @param tags ArrayList<Tag> containing this Tag's children.
 	 */
-	public void output(ArrayList<Tag> tags) {
+	public void output() {
 		System.out.println("<" + this.tagName + buildAttributeString() + ">");
-		PMLParser.parse(tags);
+		PMLParser.parse(this.childTags);
 		System.out.println("</" + this.tagName + ">");
 	}
 	
@@ -105,7 +103,7 @@ public class Tag {
 	public String buildAttributeString() {
 		String attString = "";
 		
-		if (attributes != null) {
+		if (this.hasAttributes()) {
 			attString += " ";
 			for (Map.Entry<String, String> entry : attributes.entrySet()){
 				attString += entry.getKey() + "=\"" + entry.getValue() + "\"";

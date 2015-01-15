@@ -1,15 +1,13 @@
 package tags;
 
-import java.util.ArrayList;
-
 import parser.PMLParser;
 
 public class TagElseIf extends Tag{
 
 	@Override
-	public void output(ArrayList<Tag> tags) {
+	public void output() {
 		String cond = getAttributes().get("cond");
-		System.out.println("<?php elseif (" + cond + "):?>");
-		PMLParser.parse(tags);
+		System.out.println("<?php elseif (" + cond + ") : ?>");
+		PMLParser.parse(this.getChildTags());
 	}
 }

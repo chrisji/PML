@@ -1,7 +1,5 @@
 package tags;
 
-import java.util.ArrayList;
-
 public class TagText extends Tag{
 	private String characterData;
 	
@@ -10,7 +8,7 @@ public class TagText extends Tag{
 	}
 	
 	@Override
-	public void output(ArrayList<Tag> tags) {
+	public void output() {
 		System.out.println(this.characterData);
 	}
 }
