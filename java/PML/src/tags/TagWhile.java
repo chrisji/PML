@@ -1,6 +1,5 @@
 package tags;
 
-import java.util.ArrayList;
 import parser.PMLParser;
 
 public class TagWhile extends Tag{

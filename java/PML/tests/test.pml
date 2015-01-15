@@ -12,5 +12,14 @@
 	<while cond="true">
 		<p>To infinity and beyond!</p>
 	</while>
-	<!-- hello worldshdjh ajdhajdhsajhdjsahdjk ahdjkhsjkahdkjas -->	
+	<!-- Comment will be ignored -->	
+	
+	<function name="myFunc">
+		<argument name="$arg1"/>
+		<argument name="$arg2"/>
+		<argument name="$arg3"/>
+		<argument name="$arg4"/>
+		<body>Hello World.</body>
+		<notBody>not shown</notBody>
+	</function>
 </html>

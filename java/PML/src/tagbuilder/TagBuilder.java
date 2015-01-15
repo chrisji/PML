@@ -19,6 +19,7 @@ public class TagBuilder {
 		tagMap.put("elif", "tags.TagElseIf");
 		tagMap.put("else", "tags.TagElse");
 		tagMap.put("while", "tags.TagWhile");
+		tagMap.put("function", "tags.TagFunction");
 	}
 
 	/**

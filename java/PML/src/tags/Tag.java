@@ -130,4 +130,20 @@ public class Tag {
 	public boolean hasChildren() {
 		return !this.childTags.isEmpty();
 	}
+	
+	/**
+	 * Return children of this tag that match a given tagName
+	 * 
+	 * @param tagName tag name of children to return
+	 * @return ArrayList<Tag> children of this tag that match a given tagName
+	 */
+	public ArrayList<Tag> getChildTagsByName(String tagName) {
+		ArrayList<Tag> matchingChildren = new ArrayList<Tag>();
+		for (Tag t: this.getChildTags()) {
+			if (t.getTagName().equals(tagName)) {
+				matchingChildren.add(t);
+			}
+		}
+		return matchingChildren;
+	}
 }
