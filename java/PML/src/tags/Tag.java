@@ -23,8 +23,8 @@ public class Tag {
 	 * Currently an empty constructor to simplify reflection.
 	 */
 	public Tag() {
-		this.attributes = null;
-		this.childTags = null;
+		this.attributes = new HashMap<String, String>();
+		this.childTags = new ArrayList<Tag>();
 		this.tagName = null;
 	}
 
@@ -115,14 +115,21 @@ public class Tag {
 		return attString;
 	}
 	
-	
 	/**
 	 * Tests whether this Tag has attributes.
 	 * 
 	 * @return boolean true if the Tag has one or more attribute, false otherwise.
 	 */
 	public boolean hasAttributes() {
-		// Has attributes if the attributes map has been initialised and is not empty.
-		return this.attributes!=null && !this.attributes.isEmpty();
+		return !this.attributes.isEmpty();
+	}
+	
+	/**
+	 * Tests whether this Tag has children.
+	 * 
+	 * @return boolean true if the Tag has one or more children, false otherwise.
+	 */
+	public boolean hasChildren() {
+		return !this.childTags.isEmpty();
 	}
 }
