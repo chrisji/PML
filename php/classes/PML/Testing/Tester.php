@@ -44,7 +44,7 @@ class Tester {
     {
         if($name) {
             if(isset($this->tests[$name]))
-                return $this->tests[$name]['function']($data) == $this->tests[$name]['expected'];
+                return $this->tests[$name]['function']($data) === $this->tests[$name]['expected'];
         }
 
         $results = [];
