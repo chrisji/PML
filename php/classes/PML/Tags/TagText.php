@@ -10,18 +10,15 @@ class TagText extends Tag {
      * @param Array $attributes
      * @param Array $childTags
      */
-    public function __construct(Array $attributes, $characterData)
+    public function __construct($characterData)
     {
-        parent::__constrct($attributes, []);
         $this->characterData = $characterData;
     }
 
     /**
      * Define some output for this tag
-     *
-     * @param  Array  $tags
      */
-    public function output(Array $tags)
+    public function output()
     {
         echo $this->characterData;
     }
