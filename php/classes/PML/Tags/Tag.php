@@ -13,10 +13,8 @@ class Tag {
 
     /**
      * Declare required output function
-     *
-     * @param Array $tags pass all tag info
      */
-    public output(Array $tags)
+    public output()
     {
         echo '<' . $this->tagName . $this->buildAttributeString() . '>';
         PMLParse::parse($this->childTags);
