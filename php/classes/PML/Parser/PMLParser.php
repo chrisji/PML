@@ -16,7 +16,7 @@ class PMLParser {
     {
         if(count($tags) > 0) {
             foreach($tags as $tag) {
-                $tag->output($tag->getChildTags());
+                $tag->output();
             }
         }
     }
