@@ -11,6 +11,8 @@ class TagFunction extends Tag {
         $args = $this->getChildTagsByName('argument');
         $body = $this->getChildTagsByName('body');
 
+        // Handle when no body, throw
+
         echo '<?php function '. $name .'(' . $this->buildArgumentString($args) . ') { ?>';
         PMLParser::parse($body[0]->getChildTags());
         echo '<?php } ?>';
