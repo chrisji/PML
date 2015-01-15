@@ -1,30 +1,16 @@
 package parser;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import tags.Tag;
-import tags.TagText;
 
 public class PMLParser {
-	public static void main(String[] args) {
-		// <html><h1><text>Hello world!</h1></html>
-		TagText headingText = new TagText();
-		headingText.setCharacterData("Hello world!");
-		ArrayList<Tag> headingTextList = new ArrayList<Tag>();	
-		headingTextList.add(headingText);
-		
-		Tag h1Tag = new Tag();
-		h1Tag.setChildTags(headingTextList);
-		ArrayList<Tag> h1TagList = new ArrayList<Tag>();
-		h1TagList.add(h1Tag);
-		
-		Tag htmlTag = new Tag();
-		htmlTag.setChildTags(h1TagList);
-		ArrayList<Tag> document = new ArrayList<Tag>();
-		document.add(htmlTag);
-
-		PMLParser.parse(document);
-	}
-	
+	/**
+	 * Parses each Tag in the ArrayList. 
+	 * 
+	 * This calls the output method for each tag.
+	 * 
+	 * @param tags the ArrayList of Tags to parse.
+	 */
 	public static void parse(ArrayList<Tag> tags) {
 		for (Tag t: tags) {
 			t.output();

@@ -7,6 +7,9 @@ import tags.Tag;
 public class TagBuilder {
 	private HashMap<String, String> tagMap;
 	
+	/**
+	 * Initialises tagMap.
+	 */
 	public TagBuilder() {
 		tagMap = new HashMap<String, String>();
 		tagMap.put("esc", "tags.TagEsc");
@@ -19,9 +22,11 @@ public class TagBuilder {
 	}
 
 	/**
-	 * Builds and returns a Tag by reflection, usings 
-	 * @param tagName
-	 * @return
+	 * Builds and returns a Tag by reflection, using the classes specified in the tagMap. 
+	 * 
+	 * @param tagName the name of the PML tag to build.
+	 * @return Tag the Tag that is mapped with tagName. If the tag is not found in the map
+	 * then 
 	 */
 	public Tag build(String tagName) {
 		try {

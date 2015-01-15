@@ -12,10 +12,10 @@ public class Test {
 		TagBuilder tagBuilder = new TagBuilder();
 		PMLBuilder builder = new PMLBuilder(tagBuilder);
 		Document doc = builder.loadPML("tests/test.pml");
-		Tag t = builder.build(doc);
+		Tag rootTag = builder.build(doc);
 		
 		ArrayList<Tag> tagDocument = new ArrayList<Tag>();
-		tagDocument.add(t);
+		tagDocument.add(rootTag);
 		
 		PMLParser.parse(tagDocument);
 	}
