@@ -21,7 +21,7 @@ class TagText extends Tag {
      *
      * @param  Array  $tags
      */
-    public abstract function output(Array $tags)
+    public function output(Array $tags)
     {
         echo $this->characterData;
     }
