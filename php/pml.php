@@ -18,7 +18,7 @@ $tests = (new Tester())
 
         try {
             $tag = (new TagBuilder())->build('if');
-            return ($tag instanceof PML\Tags\TagText);
+            return ($tag instanceof PML\Tags\TagIf);
         } catch(TagClassNotImplemented $e) {
             echo $e;
             return false;
@@ -32,9 +32,13 @@ $tests = (new Tester())
         $builder = new PMLBuilder(new TagBuilder());
         $doc = $builder->loadPML('test.pml')->documentElement;
         $tags = $builder->buildTagTree($doc);
-        $tags->output();
+        // $tags->output();
+
+        return ($tags instanceof PML\Tags\Tag);
 
     }, true)
 
     // Run the tests
     ->run(['some', 'data']);
+
+var_dump($tests);
