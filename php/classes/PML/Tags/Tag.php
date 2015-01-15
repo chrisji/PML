@@ -14,7 +14,7 @@ class Tag {
     /**
      * Declare required output function
      */
-    public output()
+    public function output()
     {
         echo '<' . $this->tagName . $this->buildAttributeString() . '>';
         PMLParse::parse($this->childTags);
