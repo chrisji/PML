@@ -12,11 +12,11 @@ class PMLParser {
      *
      * @param Array $tags A set of tags
      */
-    public static parse(Array $tags)
+    public static function parse(Array $tags)
     {
         if(count($tags) > 0) {
             foreach($tags as $tag) {
-                $tag->output($tag->getChildTags());
+                $tag->output();
             }
         }
     }

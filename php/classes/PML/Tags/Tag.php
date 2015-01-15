@@ -1,5 +1,7 @@
 <?php namespace PML\Tags;
 
+use PML\Parser\PMLParser;
+
 /**
  * Represents a PML element.
  *
@@ -8,25 +10,18 @@
 class Tag {
 
     private $attributes = [],
-            $childTags  = [];
-
-    /**
-     * Construct a new Tag
-     * @param Array $attributes Key/Value pairs of attributes
-     * @param Array $childTags  An array of child tags
-     */
-    public function __construct(Array $attributes, Array $childTags)
-    {
-        $this->attributes = $attributes;
-        $this->childTags  = $childTags;
-    }
+            $childTags  = [],
+            $tagName    = null;
 
     /**
      * Declare required output function
-     *
-     * @param Array $tags pass all tag info
      */
-    public abstract output(Array $tags);
+    public function output()
+    {
+        echo '<' . $this->tagName . $this->buildAttributeString() . '>';
+        PMLParser::parse($this->childTags);
+        echo '</' . $this->tagName . '>';
+    }
 
     /**
      * Get child tags
@@ -39,13 +34,83 @@ class Tag {
     }
 
     /**
-    * Get tag attributes
-    *
-    * @return Array The key/value attributes
-    */
+     * Get tag attributes
+     *
+     * @return Array The key/value attributes
+     */
     public function getAttributes()
     {
         return $this->attributes;
+    }
+
+    /**
+     * Get child tags
+     *
+     * @return Array The child tags
+     */
+    public function setChildTags($tags = [])
+    {
+        $this->childTags = $tags;
+    }
+
+    /**
+     * Get tag attributes
+     *
+     * @return Array The key/value attributes
+     */
+    public function setAttributes($attributes = [])
+    {
+        $this->attributes = $attributes;
+    }
+
+    /**
+     * Get child tags
+     *
+     * @return Array The child tags
+     */
+    public function setTagName($name = '')
+    {
+        $this->tagName = $name;
+    }
+
+    /**
+     * Build the attributes as a string
+     *
+     * @return String  The string of attributes
+     */
+    public function buildAttributeString()
+    {
+        $attString = '';
+
+        if($this->hasAttributes()) {
+            $attString += ' ';
+
+            foreach($this->attributes as $name => $value) {
+                $attString += $name . '="' . $value . '"';
+            }
+        }
+
+        return $attString;
+    }
+
+    /**
+     * Check if this tag has attributes
+     *
+     * @return Boolean  do we have attrs?
+     */
+    public function hasAttributes()
+    {
+        return !empty($this->getAttributes());
+    }
+
+    /**
+     * Does this tag have children
+     *
+     * @return Boolean  Does this tage have children
+     */
+    public function hasChildren()
+    {
+        return !empty($this->getChildTags());
     }
 
 }
