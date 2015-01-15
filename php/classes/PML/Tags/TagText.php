@@ -1,5 +1,7 @@
 <?php namespace PML\Tags;
 
+use PML\Parser\PMLParser;
+
 class TagText extends Tag {
 
     private $characterData = '';

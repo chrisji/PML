@@ -1,5 +1,7 @@
 <?php namespace PML\Tags;
 
+use PML\Parser\PMLParser;
+
 class TagIf extends Tag {
 
     public function output()

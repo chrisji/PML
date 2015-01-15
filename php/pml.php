@@ -32,11 +32,9 @@ $tests = (new Tester())
         $builder = new PMLBuilder(new TagBuilder());
         $doc = $builder->loadPML('test.pml')->documentElement;
         $tags = $builder->buildTagTree($doc);
-        var_dump($tags);
+        $tags->output();
 
     }, true)
 
     // Run the tests
     ->run(['some', 'data']);
-
-var_dump($tests);

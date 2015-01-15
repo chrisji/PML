@@ -1,5 +1,7 @@
 <?php namespace PML\Tags;
 
+use PML\Parser\PMLParser;
+
 /**
  * Represents a PML element.
  *
@@ -17,7 +19,7 @@ class Tag {
     public function output()
     {
         echo '<' . $this->tagName . $this->buildAttributeString() . '>';
-        PMLParse::parse($this->childTags);
+        PMLParser::parse($this->childTags);
         echo '</' . $this->tagName . '>';
     }
 

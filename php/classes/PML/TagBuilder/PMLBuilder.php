@@ -39,9 +39,43 @@ class PMLBuilder {
     {
         $tagName = $root->tagName;
         $rootTag = $this->builder->build($tagName);
-        $children = $root->childNodes;
+        $rootTag->setAttributes($this->buildAttributes($root));
+        $rootTag->setChildTags($this->buildChildren($root));
+        return $rootTag;
+    }
 
+    /**
+     * Build an array of attributes given
+     * a DOMNode
+     *
+     * @param DOMNode $node
+     * @return Array
+     */
+    private function buildAttributes($node)
+    {
+        $attrList = [];
+        if($node->hasAttributes()) {
+            $attributes = $node->attributes;
+
+            foreach($attributes as $attribute) {
+                $attrList[$attribute->nodeName] = $attribute->nodeValue;
+            }
+        }
+
+        return $attrList;
+    }
+
+    /**
+     * Build an array of children given
+     * a DOMNode
+     *
+     * @param DOMNode $node
+     * @return Array
+     */
+    private function buildChildren($node)
+    {
         $childTags = [];
+        $children = $node->childNodes;
 
         foreach($children as $child) {
 
@@ -53,27 +87,12 @@ class PMLBuilder {
                     $tag->setTagName('CharacterData');
                     $childTags[] = $tag;
                 }
-                
+
             } else {
                 $childTags[] = $this->buildTagTree($child);
             }
         }
 
-        if($root->hasAttributes()) {
-            $attrList = [];
-            $attributes = $root->attributes;
-
-            foreach($attributes as $attribute) {
-                $attrList[] = [
-                    $attribute->nodeName,
-                    $attribute->nodeValue
-                ];
-            }
-
-            $rootTag->setAttributes($attrList);
-        }
-
-        $rootTag->setChildTags($childTags);
-        return $rootTag;
+        return $childTags;
     }
 }
