@@ -19,7 +19,7 @@ class Tag {
     public output(Array $tags)
     {
         echo '<' . $this->tagName . $this->buildAttributeString() . '>';
-        PMLParse::parse($tags);
+        PMLParse::parse($this->childTags);
         echo '</' . $this->tagName . '>';
     }
 
