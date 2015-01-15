@@ -12,7 +12,8 @@ public class TagFunction extends Tag{
 		String args = this.buildArgumentString(this.getChildTagsByName("argument"));
 		
 		System.out.println("<?php function " + functionName + "(" + args + ") { ?>");
-		PMLParser.parse(this.getChildTagsByName("body"));
+		// TODO - disallow no body tag definition.
+		PMLParser.parse(this.getChildTagsByName("body").get(0).getChildTags());
 		System.out.println("<?php } ?>");
 	}
 	
