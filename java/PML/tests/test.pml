@@ -9,4 +9,7 @@
 	<p>This is the paragraph</p>
 	<esc><![CDATA[<?php echo '<hello>php stuff</hello>'; ?>]]></esc>
 	<img/>
+	<while cond="true">
+		<p>To infinity and beyond!</p>
+	</while>
 </html>

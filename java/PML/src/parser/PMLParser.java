@@ -2,8 +2,6 @@ package parser;
 import java.util.ArrayList;
 
 import tags.Tag;
-import tags.TagHTML;
-import tags.TagHeading;
 import tags.TagText;
 
 public class PMLParser {
@@ -14,12 +12,12 @@ public class PMLParser {
 		ArrayList<Tag> headingTextList = new ArrayList<Tag>();	
 		headingTextList.add(headingText);
 		
-		TagHeading h1Tag = new TagHeading();
+		Tag h1Tag = new Tag();
 		h1Tag.setChildTags(headingTextList);
 		ArrayList<Tag> h1TagList = new ArrayList<Tag>();
 		h1TagList.add(h1Tag);
 		
-		TagHTML htmlTag = new TagHTML();
+		Tag htmlTag = new Tag();
 		htmlTag.setChildTags(h1TagList);
 		ArrayList<Tag> document = new ArrayList<Tag>();
 		document.add(htmlTag);
@@ -28,10 +26,8 @@ public class PMLParser {
 	}
 	
 	public static void parse(ArrayList<Tag> tags) {
-		if (tags != null) {
-			for (Tag t: tags) {
-				t.output(t.getChildTags());
-			}	
-		}
+		for (Tag t: tags) {
+			t.output();
+		}	
 	}
 }

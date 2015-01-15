@@ -9,7 +9,8 @@ import tags.Tag;
 
 public class Test {
 	public static void main(String[] args) {
-		PMLBuilder builder = new PMLBuilder();
+		TagBuilder tagBuilder = new TagBuilder();
+		PMLBuilder builder = new PMLBuilder(tagBuilder);
 		Document doc = builder.loadPML("tests/test.pml");
 		Tag t = builder.build(doc);
 		

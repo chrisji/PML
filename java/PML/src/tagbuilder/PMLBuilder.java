@@ -19,8 +19,13 @@ import tags.TagText;
 public class PMLBuilder {
 	private TagBuilder tagBuilder;
 	
-	public PMLBuilder() {
-		tagBuilder= new TagBuilder();
+	/**
+	 * Construct a PMLBuilder which uses a language specific TagBuilder.
+	 * 
+	 * @param builder TagBuilder which will be used to build Tags.
+	 */
+	public PMLBuilder(TagBuilder builder) {
+		this.tagBuilder = builder;
 	}
 	
 	public Document loadPML(String filename) {

@@ -5,21 +5,24 @@ import java.util.HashMap;
 import tags.Tag;
 
 public class TagBuilder {
-	public static HashMap<String, String> tagMap;
+	private HashMap<String, String> tagMap;
 	
 	public TagBuilder() {
 		tagMap = new HashMap<String, String>();
-		tagMap.put("html", "tags.TagHTML");
-		tagMap.put("h1", "tags.TagHeading");
-		tagMap.put("p", "tags.TagParagraph");
 		tagMap.put("esc", "tags.TagEsc");
 		tagMap.put("text", "tags.TagText");
 		tagMap.put("if", "tags.TagIf");
 		tagMap.put("then", "tags.TagThen");
 		tagMap.put("elif", "tags.TagElseIf");
 		tagMap.put("else", "tags.TagElse");
+		tagMap.put("while", "tags.TagWhile");
 	}
 
+	/**
+	 * Builds and returns a Tag by reflection, usings 
+	 * @param tagName
+	 * @return
+	 */
 	public Tag build(String tagName) {
 		try {
 			Tag tag = null;
