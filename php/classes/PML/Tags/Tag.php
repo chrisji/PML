@@ -80,7 +80,7 @@ class Tag {
     {
         $attString = '';
 
-        if(!empty($this->attributes)) {
+        if($this->hasAttributes()) {
             $attString += ' ';
 
             foreach($this->attributes as $name => $value) {
