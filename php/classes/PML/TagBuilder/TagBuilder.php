@@ -17,6 +17,7 @@ class TagBuilder {
             'then'  => 'PML\\Tags\\TagThen',
             'else'  => 'PML\\Tags\\TagElse',
             'elif'  => 'PML\\Tags\\TagElseIf',
+            'function' => 'PML\\Tags\\TagFunction'
         ];
     }
 

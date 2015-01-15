@@ -32,7 +32,7 @@ $tests = (new Tester())
         $builder = new PMLBuilder(new TagBuilder());
         $doc = $builder->loadPML('test.pml')->documentElement;
         $tags = $builder->buildTagTree($doc);
-        // $tags->output();
+        $tags->output();
 
         return ($tags instanceof PML\Tags\Tag);
 

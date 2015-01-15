@@ -3,4 +3,10 @@
         <if cond="true"></if>
     </h1>
     <p>This is the paragraph</p>
+
+    <function name="name">
+        <argument name="$arg"/>
+        <argument name="$arg2">value</argument>
+    </function>
+
 </html>

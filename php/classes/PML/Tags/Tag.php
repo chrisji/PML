@@ -34,6 +34,23 @@ class Tag {
     }
 
     /**
+     * Get child tags by name
+     *
+     * @param String $name
+     * @return Array The child tags
+     */
+    public function getChildTagsByName($name)
+    {
+        $children = [];
+        foreach($this->childTags as $tag) {
+            if($tag->getTagName() == $name) {
+                $children[] = $tag;
+            }
+        }
+        return $children;
+    }
+
+    /**
      * Get tag attributes
      *
      * @return Array The key/value attributes
@@ -111,6 +128,16 @@ class Tag {
     public function hasChildren()
     {
         return !empty($this->getChildTags());
+    }
+
+    /**
+     * Get the tag name
+     *
+     * @return String $name
+     */
+    public function getTagName()
+    {
+        return $this->tagName;
     }
 
 }
